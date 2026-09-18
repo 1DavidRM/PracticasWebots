@@ -1,0 +1,63 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/GlossyPaint.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/DryMud.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.024741475520472057 0.999595059215734 0.014056207901250565 0.3709424990339387
+  position -0.6534377888131238 -0.14291446618201922 0.2563857450263567
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+}
+Robot {
+  translation 5.574784830506382e-17 2.3915556969366048e-17 0.0496272
+  rotation -7.543779107306346e-16 5.425370448237756e-16 -1 0.024122252718366405
+  children [
+    Propeller {
+      shaftAxis 0 0 1
+      device RotationalMotor {
+        name "MOTOR1"
+      }
+      fastHelix Solid {
+        translation 0 0 0.13
+        children [
+          DEF HELIX_FORMA Shape {
+            appearance DryMud {
+            }
+            geometry DEF FORMA_HELICE Box {
+              size 0.01 0.2 0.01
+            }
+          }
+        ]
+        boundingObject USE FORMA_HELICE
+        physics Physics {
+        }
+      }
+    }
+    Shape {
+      appearance GlossyPaint {
+        baseColor 0.333333 0.666667 0.498039
+      }
+      geometry DEF FORMA_HELICOPTERO Box {
+        size 0.1 0.2 0.1
+      }
+    }
+  ]
+  boundingObject USE FORMA_HELICOPTERO
+  physics Physics {
+    density -1
+    mass 1
+  }
+  controller "velocidad_constante"
+  linearVelocity 1.0669801758208898e-17 6.943002012214395e-17 -5.685323505017548e-17
+  angularVelocity -1.568456956386164e-17 -8.904102922505799e-16 -9.800000000058727e-05
+}
